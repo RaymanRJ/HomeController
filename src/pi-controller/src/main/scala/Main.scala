@@ -3,7 +3,6 @@ import java.lang.Thread.sleep
 import Controllers.{CameraController, LEDController, MonitorController}
 
 object Main extends App {
-  println("WTF")
   // 0. Config
   // --- Register with WebServer*
   // 1. Instantiate Kafka Consumer.
