@@ -28,6 +28,11 @@ object Main extends App {
     case _ => throw new NotImplementedError(s"The passed responsibility ($responsibility) does not exist.")
   }
 
-  print(s"Starting controller: $controller.")
-  controller.start()
+  println(s"Starting controller: $controller.")
+  val thread = new Thread{
+    controller.start()
+  }
+  thread.setDaemon(true)
+  thread.start()
+  println("Finished Main")
 }
