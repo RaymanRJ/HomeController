@@ -1,24 +1,25 @@
 package Controllers
 
-import java.awt.Color
-
-import com.pi4j.io.gpio.{GpioController, GpioFactory, GpioPinDigitalInput, PinPullResistance, RaspiPin}
 import Interfaces.IResponsibility
-import de.pi3g.pi.ws2812.WS2812
+import com.github.mbelling.ws281x.{Color, LedStripType, Ws281xLedStrip}
 
 case class LEDController() extends IResponsibility {
 
-  val gpio: GpioController = GpioFactory.getInstance
-  val dataController: GpioPinDigitalInput = gpio.provisionDigitalInputPin(RaspiPin.GPIO_01)
-  import com.pi4j.wiringpi.Gpio
-
-  import com.pi4j.wiringpi.SoftPwm
-
-  WS2812.get().init(16); //init a chain of 64 LEDs
-  WS2812.get().clear();
-  WS2812.get().setPixelColor(0, Color.RED); //sets the color of the fist LED to red
+  println("CONSTRUCTOR")
 
   override def start(): Unit = {
-    WS2812.get().show();
+    println("STARTING")
+
+    val ledStrip = new Ws281xLedStrip(
+        16, 18, 800*1000, 10, 255, 0, false, LedStripType.WS2811_STRIP_RGB, false
+    )
+
+    ledStrip.setPixel(0, Color.RED)
+    ledStrip.render()
+
+    //    WS2812.get().init(16); //init a chain of 64 LEDs
+//    WS2812.get().clear();
+//    WS2812.get().setPixelColor(0, Color.RED); //sets the color of the fist LED to red
+//    WS2812.get().show();
   }
 }
