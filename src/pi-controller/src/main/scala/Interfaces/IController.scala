@@ -1,5 +1,6 @@
 package Interfaces
 
-trait IResponsibility {
+trait IController {
   def start(): Unit
+  def stop(): Unit
 }

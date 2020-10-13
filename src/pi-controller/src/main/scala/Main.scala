@@ -1,6 +1,7 @@
 import java.lang.Thread.sleep
 
 import Controllers.{CameraController, LEDController, MonitorController}
+import Interfaces.IController
 
 object Main extends App {
   // 0. Config
@@ -21,7 +22,7 @@ object Main extends App {
       4 - This is too much. Should use a config file deployed alongside.
    */
   val responsibility = PiResponsibilities.get(args(0))
-  val controller = responsibility match {
+  val controller: IController = responsibility match {
     case PiResponsibilities.LED_CONTROLLER => LEDController()
     case PiResponsibilities.MONITOR_CONTROLLER => MonitorController()
     case PiResponsibilities.CAMERA_CONTROLLER => CameraController()
@@ -32,6 +33,7 @@ object Main extends App {
   val thread = new Thread{
     controller.start()
   }
+
   thread.setDaemon(true)
   thread.start()
   println("Finished Main")

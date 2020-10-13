@@ -1,7 +1,8 @@
 package Controllers
 
-import Interfaces.IResponsibility
+import Interfaces.IController
 
-case class CameraController() extends IResponsibility {
+case class CameraController() extends IController {
   override def start(): Unit = {}
+  override def stop(): Unit = {}
 }
