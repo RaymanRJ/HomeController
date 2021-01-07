@@ -11,7 +11,7 @@ database, and [peripherals](https://github.com/RaymanRJ/HomeController/tree/deve
 
 ### [pi-controller](https://github.com/RaymanRJ/HomeController/tree/development/src/pi-controller) ###
 
-This is the controller for periphrerals being used. It communicates directly with the web-server project through Kafka messages. At the moment, it controls [WS2812B LED strips](https://www.btf-lighting.com/collections/pixels-led-strip-1/products/ws2812b-led-pixel-strip-30-60-74-96-100-144-pixels-leds-m),
+This is the controller for peripherals being used. It communicates directly with the web-server project through Kafka messages. At the moment, it controls [WS2812B LED strips](https://www.btf-lighting.com/collections/pixels-led-strip-1/products/ws2812b-led-pixel-strip-30-60-74-96-100-144-pixels-leds-m),
 but there are future plans to also have it control a camera to take pictures of an outdoor scene at scheduled intervals.
 
 ### [frontend](https://github.com/RaymanRJ/HomeController/tree/development/src/frontend) ###
